@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # 后端服务
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: miniclaw-backend
+    restart: always
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./data/miniclaw.db
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - LOG_LEVEL=INFO
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+    networks:
+      - miniclaw-network
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+  # 前端服务
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: miniclaw-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - miniclaw-network
+
+  # Redis 缓存
+  redis:
+    image: redis:7-alpine
+    container_name: miniclaw-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis-data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - miniclaw-network
+
+networks:
+  miniclaw-network:
+    driver: bridge
