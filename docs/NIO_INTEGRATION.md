@@ -8,8 +8,8 @@ MiniClaw 现已支持 NIO公司的 DeepSeek-V3.1 模型，通过 OpenAI 兼容�
 
 - **模型名称**: DeepSeek-V3.1
 - **提供商**: NIO
-- **Base URL**: https://modelgateway.nioint.com/publicService/v1
-- **API Key**: `a7425832-75a5-4f53-853c-44fad94bf4a7`
+- **Base URL**: 
+- **API Key**: 
 
 ## 使用方法
 
