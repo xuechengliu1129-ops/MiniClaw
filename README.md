@@ -163,3 +163,12 @@ MIT License
 ---
 
 **🎉 享受你的个人 AI 助手！**
+
+## 🤝 界面
+
+![alt text](image.png)
+
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
