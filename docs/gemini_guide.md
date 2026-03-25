@@ -8,7 +8,7 @@
 
 API Key 格式：以 `AIza` 开头的字符串，例如：
 ```
-AIzaSyCHwwgZuPt3RUroNKB3sxc3BnpBMYZCyrU
+
 ```
 
 ### 2. 在前端添加模型
@@ -136,7 +136,7 @@ print(response.text)
 如果不想在前端输入 API Key，可以在 `.env` 文件中配置：
 
 ```bash
-GOOGLE_GEMINI_API_KEY=AIzaSyCHwwgZuPt3RUroNKB3sxc3BnpBMYZCyrU
+
 ```
 
 ---
